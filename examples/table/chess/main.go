@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
-	"github.com/charmbracelet/lipgloss/table"
+	"github.com/eionz/lipgloss"
+	"github.com/eionz/lipgloss/table"
 )
 
 func main() {
@@ -33,8 +33,18 @@ func main() {
 			return lipgloss.NewStyle().Padding(0, 1)
 		})
 
-	ranks := labelStyle.Render(strings.Join([]string{" A", "B", "C", "D", "E", "F", "G", "H  "}, "   "))
-	files := labelStyle.Render(strings.Join([]string{" 1", "2", "3", "4", "5", "6", "7", "8 "}, "\n\n "))
+	ranks := labelStyle.Render(
+		strings.Join([]string{" A", "B", "C", "D", "E", "F", "G", "H  "}, "   "),
+	)
+	files := labelStyle.Render(
+		strings.Join([]string{" 1", "2", "3", "4", "5", "6", "7", "8 "}, "\n\n "),
+	)
 
-	fmt.Println(lipgloss.JoinVertical(lipgloss.Right, lipgloss.JoinHorizontal(lipgloss.Center, files, t.Render()), ranks) + "\n")
+	fmt.Println(
+		lipgloss.JoinVertical(
+			lipgloss.Right,
+			lipgloss.JoinHorizontal(lipgloss.Center, files, t.Render()),
+			ranks,
+		) + "\n",
+	)
 }

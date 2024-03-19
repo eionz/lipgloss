@@ -15,9 +15,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/wish"
 	lm "github.com/charmbracelet/wish/logging"
+	"github.com/eionz/lipgloss"
 	"github.com/gliderlabs/ssh"
 	"github.com/kr/pty"
 	"github.com/muesli/termenv"
@@ -161,9 +161,13 @@ func handler(next ssh.Handler) ssh.Handler {
 			styles.gray,
 		)
 
-		fmt.Fprintf(&str, "%s %t %s\n\n", styles.bold.Copy().UnsetString().Render("Has dark background?"),
+		fmt.Fprintf(
+			&str,
+			"%s %t %s\n\n",
+			styles.bold.Copy().UnsetString().Render("Has dark background?"),
 			renderer.HasDarkBackground(),
-			renderer.Output().BackgroundColor())
+			renderer.Output().BackgroundColor(),
+		)
 
 		block := renderer.Place(width,
 			lipgloss.Height(str.String()), lipgloss.Center, lipgloss.Center, str.String(),

@@ -3,8 +3,9 @@ package table
 import (
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
 	"github.com/muesli/reflow/truncate"
+
+	"github.com/eionz/lipgloss"
 )
 
 // StyleFunc is the style function that determines the style of a Cell.
@@ -244,7 +245,10 @@ func (t *Table) String() string {
 			cell := t.data.At(r, i)
 
 			rendered := t.style(r+1, i).Render(cell)
-			t.heights[r+btoi(hasHeaders)] = max(t.heights[r+btoi(hasHeaders)], lipgloss.Height(rendered))
+			t.heights[r+btoi(hasHeaders)] = max(
+				t.heights[r+btoi(hasHeaders)],
+				lipgloss.Height(rendered),
+			)
 			t.widths[i] = max(t.widths[i], lipgloss.Width(rendered))
 		}
 	}

@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
+	"github.com/eionz/lipgloss"
 	"github.com/lucasb-eyer/go-colorful"
 	"golang.org/x/term"
 )
@@ -235,7 +235,10 @@ func main() {
 		okButton := activeButtonStyle.Render("Yes")
 		cancelButton := buttonStyle.Render("Maybe")
 
-		question := lipgloss.NewStyle().Width(50).Align(lipgloss.Center).Render("Are you sure you want to eat marmalade?")
+		question := lipgloss.NewStyle().
+			Width(50).
+			Align(lipgloss.Center).
+			Render("Are you sure you want to eat marmalade?")
 		buttons := lipgloss.JoinHorizontal(lipgloss.Top, okButton, cancelButton)
 		ui := lipgloss.JoinVertical(lipgloss.Center, question, buttons)
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/charmbracelet/lipgloss"
-	"github.com/charmbracelet/lipgloss/table"
+	"github.com/eionz/lipgloss"
+	"github.com/eionz/lipgloss/table"
 )
 
 func main() {

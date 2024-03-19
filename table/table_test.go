@@ -6,7 +6,8 @@ import (
 	"unicode"
 
 	"github.com/acarl005/stripansi"
-	"github.com/charmbracelet/lipgloss"
+
+	"github.com/eionz/lipgloss"
 )
 
 var TableStyle = func(row, col int) lipgloss.Style {
@@ -409,12 +410,12 @@ func TestTableUnsetBorders(t *testing.T) {
 		BorderRight(false)
 
 	expected := strings.TrimPrefix(`
- LANGUAGE │    FORMAL    │ INFORMAL  
+ LANGUAGE │    FORMAL    │ INFORMAL
 ──────────┼──────────────┼───────────
- Chinese  │ Nǐn hǎo      │ Nǐ hǎo    
- French   │ Bonjour      │ Salut     
- Japanese │ こんにちは   │ やあ      
- Russian  │ Zdravstvuyte │ Privet    
+ Chinese  │ Nǐn hǎo      │ Nǐ hǎo
+ French   │ Bonjour      │ Salut
+ Japanese │ こんにちは   │ やあ
+ Russian  │ Zdravstvuyte │ Privet
  Spanish  │ Hola         │ ¿Qué tal? `, "\n")
 
 	if table.String() != expected {
@@ -443,11 +444,11 @@ func TestTableUnsetHeaderSeparator(t *testing.T) {
 		BorderRight(false)
 
 	expected := strings.TrimPrefix(`
- LANGUAGE │    FORMAL    │ INFORMAL  
- Chinese  │ Nǐn hǎo      │ Nǐ hǎo    
- French   │ Bonjour      │ Salut     
- Japanese │ こんにちは   │ やあ      
- Russian  │ Zdravstvuyte │ Privet    
+ LANGUAGE │    FORMAL    │ INFORMAL
+ Chinese  │ Nǐn hǎo      │ Nǐ hǎo
+ French   │ Bonjour      │ Salut
+ Japanese │ こんにちは   │ やあ
+ Russian  │ Zdravstvuyte │ Privet
  Spanish  │ Hola         │ ¿Qué tal? `, "\n")
 
 	if table.String() != expected {
@@ -536,9 +537,18 @@ func TestTableHeights(t *testing.T) {
 	}
 
 	rows := [][]string{
-		{"Chutar o balde", `Literally translates to "kick the bucket." It's used when someone gives up or loses patience.`},
-		{"Engolir sapos", `Literally means "to swallow frogs." It's used to describe someone who has to tolerate or endure unpleasant situations.`},
-		{"Arroz de festa", `Literally means "party rice." It´s used to refer to someone who shows up everywhere.`},
+		{
+			"Chutar o balde",
+			`Literally translates to "kick the bucket." It's used when someone gives up or loses patience.`,
+		},
+		{
+			"Engolir sapos",
+			`Literally means "to swallow frogs." It's used to describe someone who has to tolerate or endure unpleasant situations.`,
+		},
+		{
+			"Arroz de festa",
+			`Literally means "party rice." It´s used to refer to someone who shows up everywhere.`,
+		},
 	}
 
 	table := New().
@@ -827,13 +837,13 @@ func TestTableWidths(t *testing.T) {
 
 	expected := strings.TrimSpace(`
 ──────────────────────────────
- LANGUAGE  FORMAL   INFORMAL  
+ LANGUAGE  FORMAL   INFORMAL
 ──────────────────────────────
- Chinese   Nǐn hǎo  Nǐ hǎo    
- French    Bonjour  Salut     
- Japanese  こんに   やあ      
- Russian   Zdravst  Privet    
- Spanish   Hola     ¿Qué tal? 
+ Chinese   Nǐn hǎo  Nǐ hǎo
+ French    Bonjour  Salut
+ Japanese  こんに   やあ
+ Russian   Zdravst  Privet
+ Spanish   Hola     ¿Qué tal?
 ──────────────────────────────
 `)
 
@@ -863,13 +873,13 @@ func TestTableWidthShrinkNoBorders(t *testing.T) {
 
 	expected := strings.TrimSpace(`
 ──────────────────────────────
- LANGUAGE  FORMAL   INFORMAL  
+ LANGUAGE  FORMAL   INFORMAL
 ──────────────────────────────
- Chinese   Nǐn hǎo  Nǐ hǎo    
- French    Bonjour  Salut     
- Japanese  こんに   やあ      
- Russian   Zdravst  Privet    
- Spanish   Hola     ¿Qué tal? 
+ Chinese   Nǐn hǎo  Nǐ hǎo
+ French    Bonjour  Salut
+ Japanese  こんに   やあ
+ Russian   Zdravst  Privet
+ Spanish   Hola     ¿Qué tal?
 ──────────────────────────────
 `)
 

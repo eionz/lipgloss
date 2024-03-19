@@ -5,15 +5,17 @@ import (
 	"os"
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
-	"github.com/charmbracelet/lipgloss/table"
+	"github.com/eionz/lipgloss"
+	"github.com/eionz/lipgloss/table"
 )
 
 func main() {
 	re := lipgloss.NewRenderer(os.Stdout)
 	baseStyle := re.NewStyle().Padding(0, 1)
 	headerStyle := baseStyle.Copy().Foreground(lipgloss.Color("252")).Bold(true)
-	selectedStyle := baseStyle.Copy().Foreground(lipgloss.Color("#01BE85")).Background(lipgloss.Color("#00432F"))
+	selectedStyle := baseStyle.Copy().
+		Foreground(lipgloss.Color("#01BE85")).
+		Background(lipgloss.Color("#00432F"))
 	typeColors := map[string]lipgloss.Color{
 		"Bug":      lipgloss.Color("#D7FF87"),
 		"Electric": lipgloss.Color("#FDFF90"),
